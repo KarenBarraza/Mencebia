@@ -24,6 +24,7 @@ def menu():
             Funciones.seleccionar_columnas(df)
         if opcion == "2":
             Funciones.seleccionar_filas(df)
-        
+        elif opcion == "3":
+            Funciones.aplicar_filtros(df)
         
 menu()
