@@ -26,5 +26,8 @@ def menu():
             Funciones.seleccionar_filas(df)
         elif opcion == "3":
             Funciones.aplicar_filtros(df)
+        elif opcion == "4":
+            print("Saliendo del programa...")
+            break
         
 menu()
