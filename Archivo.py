@@ -1,20 +1,22 @@
 import pandas as pd
-#import matplotlib.pyplot as mp
 
 class Archivo:
-    def __init__ (self,Buceo_de_la_Concha):
-        self.Buceo_de_la_Concha=Buceo_de_la_Concha
+    def __init__(self, ruta):
+        self.ruta = ruta
+        self._datos = None
 
     def leer(self):
         try:
-            self.datos=pd.read_csv(self.Buceo_de_la_Concha)
+            self.datos = pd.read_csv(self.ruta)
+            print("Archivo cargado correctamente.")
+
         except FileNotFoundError:
-            print("No existe")
-            
+            print("No existe el archivo en la ruta indicada.")
+
     @property
     def datos(self):
         return self._datos
-    
+
     @datos.setter
-    def datos(self,datos):
-        self._datos=datos
+    def datos(self, datos):
+        self._datos = datos
