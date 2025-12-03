@@ -1,5 +1,5 @@
 import pandas as pd
-#import matplotlib.pyplot as mp
+import matplotlib.pyplot as mp
 
 class Archivo:
     def __init__ (self,Buceo_de_la_Concha):
@@ -18,3 +18,6 @@ class Archivo:
     @datos.setter
     def datos(self,datos):
         self._datos=datos
+
+    
+    
