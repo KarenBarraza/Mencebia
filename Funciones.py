@@ -13,7 +13,7 @@ def seleccionar_columnas(df):
 
 def seleccionar_filas(df):
     print("\n--- Selección de filas ---")
-    print(df.iloc[0:3])
+    print(df.iloc[0:5])
 
 
 def aplicar_filtros(df):
