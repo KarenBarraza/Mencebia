@@ -1,3 +1,4 @@
+#Importacion de la libreria pandas
 import pandas as pd
 import matplotlib.pyplot as mp
 
@@ -9,7 +10,7 @@ class Archivo:
     #Funcion para leer el archivo
     def leer(self):
         try:
-            self.datos=pd.read_csv(self.Buceo_de_la_Concha)
+            self.datos = pd.read_csv(self.ruta)    
         except FileNotFoundError:
             print("No existe")
     #Getter     
