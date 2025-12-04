@@ -11,8 +11,9 @@ class Dashboard:
 
     # Getter y setter para total_genero_preferencia
     def total_genero_preferencia(self, df):
-        return df.groupby("genero_preferencia")["valor_total"].sum()
-
+        return df.groupby("genero_preferencia")["valor_total"].sum()    
+    
+    #Funcion para crear las graficas correspondientes a la actividad 6
     def crear_dashboard(self, df):
         fig, axes = mp.subplots(2,1, figsize=(5,5))
         #grafico 1
@@ -25,3 +26,26 @@ class Dashboard:
         axes[1].set_xlabel("")
         mp.tight_layout()
         mp.show()
+
+    #Funcion para crear cuartiles
+    def crear_cuartiles(self, df, columna):
+        Q1=df["valor_total"].quantile(0.25)
+        Q2=df["valor_total"].quantile(0.50)
+        Q3=df["valor_total"].quantile(0.75)
+        return Q1, Q2, Q3
+    
+    #Funcion para imprimir los resultados de los cuartiles en el menu 
+    def imprimir_cuartiles(self, df):
+        Q1, Q2, Q3 = self.crear_cuartiles(df, "valor_total")
+        print("Cuartil N°1:", Q1)
+        print("Cuartil N°2:", Q2)
+        print("Cuartil N°3:", Q3)
+
+    # def crear_graficas_cuartiles(self, df):
+    #     fig, axes = mp.subplots(1,1, figsize=(5,5))
+    #     #Grafica de caja y bigotes
+    #     mp.boxplot(df["valor_total"], vert=False)
+    #     mp.title("Grafica de Cuartiles")
+    #     mp.show()
+
+
