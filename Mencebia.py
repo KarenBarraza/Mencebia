@@ -14,3 +14,5 @@ funcion=Funciones(datos)
 datos["valor_minutos"]=funcion.valorMinutos()
 
 print(datos)
+#muestra el valor maximo por minuto
+print("El valor maximo por minuto es:",funcion.valorMinutoMax())

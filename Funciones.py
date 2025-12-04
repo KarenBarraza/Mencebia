@@ -27,4 +27,6 @@ class Funciones():
         datos=self.ValorTotal/self.minutos
         return datos
 
-    
+    def valorMinutoMax(self):
+        valor=self.valorMinutos()
+        return valor.max()
