@@ -41,11 +41,11 @@ class Dashboard:
         print("Cuartil N°2:", Q2)
         print("Cuartil N°3:", Q3)
 
-    # def crear_graficas_cuartiles(self, df):
-    #     fig, axes = mp.subplots(1,1, figsize=(5,5))
-    #     #Grafica de caja y bigotes
-    #     mp.boxplot(df["valor_total"], vert=False)
-    #     mp.title("Grafica de Cuartiles")
-    #     mp.show()
+    def crear_graficas_cuartiles(self, df):
+        fig, axes = mp.subplots(1,1, figsize=(5,5))
+        #Grafica de caja y bigotes
+        mp.boxplot(df["valor_total"], vert=False)
+        mp.title("Grafica de Cuartiles")
+        mp.show()
 
 
