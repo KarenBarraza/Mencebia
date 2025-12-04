@@ -7,12 +7,11 @@ from Funciones import Funciones
 archivo= Archivo('Buceo_de_la_Concha.csv')
 #lee el archivo
 archivo.leer()
-datos=archivo.datos
+df=archivo.datos
 #se instancia la clase funciones
-funcion=Funciones(datos)
+funcion=Funciones()
 #se crea una nueva columna 
-datos["valor_minutos"]=funcion.valorMinutos()
+df["valor_minutos"]=funcion.valorMinutos(df)
 
-print(datos)
-#muestra el valor maximo por minuto
-print("El valor maximo por minuto es:",funcion.valorMinutoMax())
+#muestra el valor maximo y minimo por minuto
+funcion.valorMinutoMax(df)#agregar al menu 

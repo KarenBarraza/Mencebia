@@ -2,31 +2,16 @@ import pandas as pd
 
 
 class Funciones():
-    def __init__(self,datos):
-        self.minutos=datos
-        self.ValorTotal=datos
-        
+    def __init__(self):
+       pass
 
-    @property
-    def minutos(self)->int:
-        return self._minutos
-    
-    @minutos.setter
-    def minutos(self,datos):
-        self._minutos=datos["tiempo_minutos"]
+    #se crea una funcion para crear una nueva columna con el valor por minuto    
+    def valorMinutos(self,df):
+        df=df["valor_total"]/df["tiempo_minutos"]
+        return df
 
-    @property
-    def ValorTotal(self)->int:
-        return self._ValorTotal
-    
-    @ValorTotal.setter
-    def ValorTotal(self,datos):
-        self._ValorTotal=datos["valor_total"]
-
-    def valorMinutos(self):
-        datos=self.ValorTotal/self.minutos
-        return datos
-
-    def valorMinutoMax(self):
-        valor=self.valorMinutos()
-        return valor.max()
+    #se crea una funcion para mostrar el valor maximo y minimo por minuto
+    def valorMinutoMax(self,df):
+        valor=df["valor_minutos"]
+        print("el valor mas alto por minuto es",valor.max())
+        print("el valor mas bajo por minuto es",valor.min())
