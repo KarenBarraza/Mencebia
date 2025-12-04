@@ -10,7 +10,7 @@ class Archivo:
     #Funcion para leer el archivo
     def leer(self):
         try:
-            self.datos = pd.read_csv(self.ruta)    
+            self.datos = pd.read_csv(self.Buceo_de_la_Concha)    
         except FileNotFoundError:
             print("No existe")
     #Getter     

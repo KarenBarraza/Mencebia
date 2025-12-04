@@ -15,18 +15,21 @@ class Dashboard:
     
     #Funcion para crear las graficas correspondientes a la actividad 6
     def crear_dashboard(self, df):
-        fig, axes = mp.subplots(2,1, figsize=(5,5))
-        #grafico 1
+        fig, axes = mp.subplots(3,1, figsize=(6,10))
+        #Grafica de barras
         self.total_tipo_servicio(df).plot(kind="bar", ax=axes[0], title="Ganancia por tipo de servicio")
         axes[0].set_xlabel("Tipo de servicio")
         axes[0].set_ylabel("Total Ganancias")
-        #grafica 2
+        #Grafica circular
         self.total_genero_preferencia(df).plot(kind="pie", ax=axes[1], autopct='%1.1f%%', title="Género de preferencia")
         axes[1].set_ylabel("")
         axes[1].set_xlabel("")
+        #Grafica de caja y bigotes
+        mp.boxplot(df["valor_total"], vert=False)
+        mp.title("Grafica de Cuartiles")
         mp.tight_layout()
         mp.show()
-
+        
     #Funcion para crear cuartiles
     def crear_cuartiles(self, df, columna):
         Q1=df["valor_total"].quantile(0.25)
@@ -41,11 +44,7 @@ class Dashboard:
         print("Cuartil N°2:", Q2)
         print("Cuartil N°3:", Q3)
 
-    def crear_graficas_cuartiles(self, df):
-        fig, axes = mp.subplots(1,1, figsize=(5,5))
-        #Grafica de caja y bigotes
-        mp.boxplot(df["valor_total"], vert=False)
-        mp.title("Grafica de Cuartiles")
-        mp.show()
-
+   
+        
+        
 
