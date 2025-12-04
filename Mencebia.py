@@ -1,3 +1,4 @@
+#improta archivos necesarios
 #Importacion de todos  los archivos necesarios
 import pandas
 from Archivo import Archivo
@@ -42,6 +43,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from MencebiaClass import MencebiaClass
 from Archivo import Archivo
+from Funciones import Funciones
+#se instancia la clase archivo
+archivo= Archivo('Buceo_de_la_Concha.csv')
+#lee el archivo
+archivo.leer()
+df=archivo.datos
+#se instancia la clase funciones
+funcion=Funciones()
+#se crea una nueva columna 
+df["valor_minutos"]=funcion.valorMinutos(df)
+
+#muestra el valor maximo y minimo por minuto
+funcion.valorMinutoMax(df)#agregar al menu 
 # Ruta del archivo CSV
 instanciacion= Archivo("Buceo_de_la_Concha.csv")
 instanciacion.leer()
