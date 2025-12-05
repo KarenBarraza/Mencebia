@@ -21,13 +21,14 @@ class Dashboard:
     
     #Funcion para crear las graficas correspondientes a la actividad 6
     def crear_dashboard(self, df):
-        fig, axes = mp.subplots(2,3, figsize=(10,6))
+        fig, axes = mp.subplots(2,3, figsize=(14,7))
         #Grafica de barras
         self.total_tipo_servicio(df).plot(kind="bar", ax=axes[0,0], title="Ganancia por tipo de servicio")
         axes[0,0].set_xlabel("Tipo de servicio")
         axes[0,0].set_ylabel("Total Ganancias")
         #Grafica circular
-        self.total_genero_preferencia(df).plot(kind="pie", ax=axes[0,1], autopct='%1.1f%%', title="Género de preferencia")
+        self.total_genero_preferencia(df).plot(kind="pie", ax=axes[0,1], autopct='%1.1f%%', radius=2.0)
+        axes[0,1].set_title("Género de preferencia", pad=40)
         axes[0,1].set_xlabel("")
         axes[0,1].set_ylabel("")
         #Grafica de caja y bigotes
@@ -36,17 +37,18 @@ class Dashboard:
         mp.title("Grafica de Cuartiles")
         #Grafica de barras por genero cliente
         self.ganancia_genero(df).plot(kind="bar", ax=axes[1,0], title="Ganancia genero de preferencia")
-        axes[1,0].set_xlabel("Genero del cliente")
+        axes[1,0].set_xlabel("Género del cliente")
         axes[1,0].set_ylabel("Total Ganancias")
         #Grafica de tiempo
-        mp.sca(axes[1,1])
+        mp.sca(axes[1,2])
         mp.boxplot(df["tiempo_minutos"], vert=False)
         mp.title("Rankin de tiempo")
         #Grafica Medios de pago
-        self.medios_de_pago(df).plot(kind="pie", ax=axes[1,2], autopct='%1.1f%%', title="Medios de pago")
-        axes[1,2].set_xlabel("")
-        axes[1,2].set_ylabel("")
-        mp.tight_layout()
+        self.medios_de_pago(df).plot(kind="pie", ax=axes[1,1], autopct='%1.1f%%', radius=2.0)
+        axes[1,1].set_title("Medios de pago", pad=35)
+        axes[1,1].set_xlabel("")
+        axes[1,1].set_ylabel("")
+        mp.tight_layout(pad=2)
         mp.show()
         
     #Funcion para crear cuartiles
