@@ -74,7 +74,7 @@ while menuActivo:
         print(f.imprimir_cuartiles(df))
     elif opcion == '7':
         #Muestra las graficas realizadas
-        print(f.crear_dashboard(df))
+        f.crear_dashboard(df)
     elif opcion == '8':
         #Sale del programa
         print("Saliendo del programa.")
