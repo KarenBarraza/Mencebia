@@ -40,9 +40,11 @@ class Dashboard:
     #Funcion para imprimir los resultados de los cuartiles en el menu 
     def imprimir_cuartiles(self, df):
         Q1, Q2, Q3 = self.crear_cuartiles(df, "valor_total")
+        print("Cuartiles:")
         print("Cuartil N°1:", Q1)
         print("Cuartil N°2:", Q2)
         print("Cuartil N°3:", Q3)
+        print()
 
    
         

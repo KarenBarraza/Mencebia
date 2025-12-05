@@ -20,62 +20,63 @@ df["valor_minutos"]=funcion.valorMinutos(df)
 menuActivo=True
 while menuActivo:
     print("------- MENU MENCEBIA -------")
-    print("1. Mostrar ordenado el total")
-    print("2. Mostrar total por servicio")
-    print("3. Mostrar total por alias")
-    print("4. Mostrar las primeras filas")
-    print("5. Mostrar tipo de datos")
-    print("6. Mostrar valor minimo")
-    print("7. Mostrar valor maximo")#alison
-    print("8. Seleccionar columnas")
-    print("9. Seleccionar filas")
-    print("10. Aplicar filtros")
-    print("11. valores nulos")
-    print("12. Rango valor minuto")#Michelle
-    print("13. Mini Dashboard")
-    print("14. Cuartiles")
-    #print("15. Grafica cuartiles")
-    print("16. Salir")
+    print("1. Exploración inicial del conjunto de datos")
+    print("2. Selección de columnas, filas y aplicación de filtros")
+    print("3. Ordenar y agrupar información")
+    print("4. Creación de una nueva columna 'total'")
+    print("5. Manejo de valores nulos")
+    print("6. Mostrar cuartiles")
+    print("7. Mini dashboard")
+    print("8. Salir")
 
+    #Se le solicita al cliente que seleccione una opcion 
     opcion=input("Seleccione una opcion: ")
-    #La opcion uno que nos muestra el orden de mayor a menor
+    
     if opcion == '1':
-        print(funcion.ordenado_total(df))
-    #La opcion dos que nos muestra el total por porducto
-    elif opcion == '2':
-        print(funcion.total_por_producto(df))
-    #La opcion tres que nos muestra el total por alias
-    elif opcion == '3':
-        print(funcion.total_por_alias(df))
-    #La opcion que nos permite visualizar las filas
-    elif opcion =='4' :
+        #Se visualizan las 5 primeras filas
+        print("-------- Primeras Filas --------")
         print(funcion.visualizacion_filas(df))
-    #La opcion que nos muestra el tipo de datos
-    elif opcion == '5':
+        #Se visualizan los tipos de datos de la base de datos
+        print("-------- Tipo de Datos ---------")
         print(funcion.tipo_datos(df))
-    #La opcion que nos muestra el valor minimo
-    elif opcion == '6' :
+        #Muestra el valor minimo y maximo
+        print("----------------------------------------------")
         print("El valor minimo es: ",funcion.valor_minimo(df))
-    #La opcion que nos muestra el valor maximo
-    elif opcion == '7':
         print("El valor maximo es: ",funcion.valor_maximo(df))
-    elif opcion == "8":
-            funcion.seleccionar_columnas(df)
-    elif opcion == "9":
-        funcion.seleccionar_filas(df)
-    elif opcion == "10":
+    elif opcion == '2':
+        #Esta funcin muestra datos filtrados segun criterios especificos
         funcion.aplicar_filtros(df)
-    elif opcion == "11":
+        print("----------------------------------------------")
+        #Muestra las filas referidas
+        funcion.seleccionar_filas(df)
+    elif opcion == '3':
+        #Ordena el valor total de forma ascendente
+        print(funcion.ordenado_total(df))
+        print("----------------------------------------------")
+        #Muestra el valor total por tipo de servicio
+        print(funcion.total_por_producto(df))
+        print("----------------------------------------------")
+        #Muestra el valor total por alias
+        print(funcion.total_por_alias(df))
+    elif opcion =='4' :
+        #Crea una columna de valor por minutos
+        funcion.valorMinutos(df)
+        #Selecciona las columnas requeridas
+        funcion.seleccionar_columnas(df)
+        #Muestra el valor maximo por minuto
+        funcion.valorMinutoMax(df) 
+        print("----------------------------------------------")
+    elif opcion == '5':
+        #Realiza todo el manejo de valores nulos
         funcion.valores_nulos(df)
-    elif opcion == "12":
-        #muestra el valor maximo y minimo por minuto
-        funcion.valorMinutoMax(df)
-    elif opcion == "13":
-        print(f.crear_dashboard(df))
-    elif opcion == "14":
+    elif opcion == '6':
+        #Muestra los cuartiles de 25, 50 y  75%
         print(f.imprimir_cuartiles(df))
-    #La opcion que rompre el bucle para cerrar el programa
-    elif opcion == '16':
+    elif opcion == '7':
+        #Muestra las graficas realizadas
+        print(f.crear_dashboard(df))
+    elif opcion == '8':
+        #Sale del programa
         print("Saliendo del programa.")
         break
 
